@@ -7,7 +7,15 @@ import {ERC20Votes} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Vo
 import {Nonces} from "@openzeppelin/contracts/utils/Nonces.sol";
 
 contract Mira is ERC20, ERC20Permit, ERC20Votes {
-    constructor() ERC20("MIRA", "MIRA") ERC20Permit("MIRA") {
-        _mint(msg.sender, 1000000000 * (10 ** 18));
+    constructor() ERC20("Mira", "Mira") ERC20Permit("Mira") {}
+
+    // The functions below are overrides required by Solidity.
+
+    function _update(address from, address to, uint256 amount) internal override(ERC20, ERC20Votes) {
+        super._update(from, to, amount);
+    }
+
+    function nonces(address owner) public view virtual override(ERC20Permit, Nonces) returns (uint256) {
+        return super.nonces(owner);
     }
 }
