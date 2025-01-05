@@ -6,8 +6,8 @@ import {ERC20Permit} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20P
 import {ERC20Votes} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
 import {Nonces} from "@openzeppelin/contracts/utils/Nonces.sol";
 
-contract Mira3 is ERC20, ERC20Permit, ERC20Votes {
-    constructor() ERC20("MIRA3", "MR3") ERC20Permit("MIRA3") {
+contract Mira is ERC20, ERC20Permit, ERC20Votes {
+    constructor() ERC20("MIRA", "MIRA") ERC20Permit("MIRA") {
         _mint(msg.sender, 1000000000 * (10 ** 18));
     }
 
